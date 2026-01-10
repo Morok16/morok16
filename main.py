@@ -127,7 +127,7 @@ else:
 @app.route("/")
 def index():
     return"Bot is running!"
-@app.route("/{API_TOKEN}",methods=["POST"])
+@app.route(f"/{API_TOKEN}",methods=["POST"])
 def wedhook():
     try:
         json_str = request.get_data(as_text=True)
