@@ -285,7 +285,7 @@ def slot(message):
 if __name__ == '__main__':
     server_url = os.getenv("RENDER_EXTREMAL_URL")
     if server_url and API_TOKEN:
-        webhook_url = f"{server_url.rstrip('/')}/{API_TOKEN}
+        webhook_url = f"{server_url.rstrip('/')}/{API_TOKEN}"
         try:
             r = requests.get(f"https://api.telegram.org/bot{API_TOKEN}/setWebhook",
                              params={"url": webhook_url},timeout=10)
@@ -294,7 +294,7 @@ if __name__ == '__main__':
             logging.exception(f"Ошибка при установке webhook:{e}")
         port = int(os.getenv("PORT",10000))
         logging.info("Starting server on port %s",port)
-        app.run(host="0.0.0",port=port)
+        app.run(host="0.0.0.0",port=port)
     else:
         logging.info("запуск бота в режиме pooling")
         bot.remove_webhook()
