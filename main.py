@@ -131,7 +131,7 @@ def index():
 def wedhook():
     try:
         json_str = request.get_data(as_text=True)
-        update = telebot.types.Ubdate.de_json(json_str)
+        update = telebot.types.Update.de_json(json_str)
         if update:
             bot.process_new_updates([update])
     except Exception as e:
