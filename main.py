@@ -62,7 +62,7 @@ def start(message):
         return
     elif data["users"][str(user_id)]['awaiting'] == "vehical":
         bot.send_message(message.chat.id,"На какой машине ты ездишь?")
-        data["users"][str(user_id)['awaiting']] = "vehical"
+        data["users"][str(user_id)]['awaiting']] = "vehical"
 
 
     keybord = telebot.types.ReplyKeyboardMarkup(resize_keyboard= True)
