@@ -29,7 +29,8 @@ def convert_markdown_to_html(text: str) -> str:
     text = re.sub(r'__(.*?)__', r'<u>\1</u>',text)
     text = re.sub(r'~~(.*?)~~',r'<s>\1</s>',text)
     text = re.sub(r'`([^`]*)`',r'<code>\1</code>',text)
-    text = re.sub(r'\[(.*?)\]\((.*?)\)'),r'<a href="\2">\1</a>',text
+    text = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2">\1</a>', text)
+
     return text
 def send_long_message(chat_id, text, parse_mode='HTML'):
     try:
@@ -123,7 +124,7 @@ def chat(user_id, text):
             logging.error(f"Ошибка API: {json.dumps(data, ensure_ascii=False)}")
     except Exception as e:
         logging.error(f"Ошибка при запросе: {e}")
-        bot.send_long_message(f"Ошибка при запросе: {e}, повторите попытку позже")
+        send_long_message(f"Ошибка при запросе: {e}, повторите попытку позже")
 TFLITE_PATH = "cat_dog_model.tflite"
 TFLITE_URL = os.getenv("CAT_DOGS_TFLITE_URL")
 _interpreter = None
