@@ -248,7 +248,7 @@ def handle_text(message):
                     pass
     except Exception as e:
         bot.send_message(message.chat.id, f"Ошибка: {e}")
-if __name__ == "main":
+if __name__ == "__main__":
     server_url = os.getenv("RENDER_EXTERNAL_URL")
     if server_url and TOKEN:
         webhook_url = f"{server_url.rstrip('/')}/{TOKEN}"
