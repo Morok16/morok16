@@ -19,7 +19,7 @@ if not TOKEN:
     sys.exit("Ошибка: BOT_TOKEN не задан в переменных окружения")
 
 bot = telebot.TeleBot(TOKEN, parse_mode=None)
-app = Flask(name)
+app = Flask(__name__)
 
 MAX_LEN = 4096
 
@@ -248,7 +248,7 @@ def handle_text(message):
                     pass
     except Exception as e:
         bot.send_message(message.chat.id, f"Ошибка: {e}")
-if name == "main":
+if __name__ == "main":
     server_url = os.getenv("RENDER_EXTERNAL_URL")
     if server_url and TOKEN:
         webhook_url = f"{server_url.rstrip('/')}/{TOKEN}"
